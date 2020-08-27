@@ -160,6 +160,7 @@ h1{
     text-align: center;
     justify-content: center;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 #myBtnContainer{
@@ -238,5 +239,58 @@ h1{
 
 .show {
     display: block;
-  }
+}
+
+/*about me*/
+#aboutMe{
+    background-color: white;
+    padding-left:10%;
+    padding-right:10%; 
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+.profile{
+    margin-top: 40px;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: nowrap;
+    color: #ff9900;
+}
+.profile-left{
+    justify-items: center;
+    text-align: center;
+}
+
+#me2{
+    height: 60vh;
+    border-radius: 25%;
+    display: inline-block;
+    margin-right: 80px;
+    margin-left: 80px;
+}
+
+.profile-right{ 
+    margin: auto;
+    margin-right: 80px;
+}
+
+.profile-right p{ 
+    color: black;
+}
+
+.profile-intro{
+    color: #ff9900;
+}
+
+#facts{
+    color: #ff9900;
+}
+
+.profile-right ul{
+    list-style-type: none;
+    color: black;
+}
+
   
