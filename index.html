@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="style.css">
+
+     <title>Wendy Sung</title>
+</head>
+<body>
+    <!-- background -->
+    <div class="header">
+         <!-- navbar -->
+        <div id="title-background"></div>
+        <nav class="navbar fixed-top navbar-expand-lg text-white">
+            <div>
+                <a class="navbar-brand" href="#">WS</a>
+               
+            </div>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/aboutMe.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="WendySungResume.pdf" download="Wendy Sung Resume">Resume</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+         <!-- title -->
+        <div class="head-Title">
+          <div class="header-top">
+            <img id ="me" src ="me.PNG" alt="Me">
+          <p><span style="font-weight:600" >humanist</span> <br>designer & coder <br>passionate about working <br>with others to solve <br>social issues</p>
+          </div>
+          <div class="header-bottom">
+            <p><b>Hello! <br>I'm Wendy.</b></p>
+          </div>
+        </div>
+    </div>
+
+    
+    <section id="projects">
+
+        <div class="section-heading">
+            <h3 class="pageName"> &#128221; Projects &#128221;</h3>
+        </div>
+
+        <!--Filter Buttons-->
+        <div id="myBtnContainer">
+                <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                <button class="btn" onclick="filterSelection('ux/ui')"> UX/UI</button>
+                <button class="btn" onclick="filterSelection('swe')"> SWE</button>
+        </div>
+            
+        <!---Filter cards-->
+        <div class="container">
+                <div class="filterDiv swe">
+                    <a href="https://wwwthewomens-network.squarespace.com">
+                        <img class="card-img" src="https://static1.squarespace.com/static/5e802af05234e755946e7e50/t/5ec1ad863ca6b4722cf2a0ae/1596040572124/?format=1500w" alt="Card image cap">
+                        <div class="card-text">
+                            <h5><b>Data Autamation & Web developing</b> | The Women's Network</h5>
+                            <p class="card-description">As a Data Analyst Intern, I worked on creating a new automated email system for the organization, organized data across spreadsheet and coded TWN's new internship product on its Webpage.</p>
+                            <span class="badge badge-pill badge-secondary">HTML/CSS</span>
+                            <span class="badge badge-pill badge-warning">JavaScript</span>
+                        </div>
+                    </a> 
+                </div>
+              
+            
+                
+        </div>
+
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+
+    <script>
+
+$(function () {
+  $(document).scroll(function () {
+	  var $nav = $(".navbar.fixed-top");
+	  $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+	});
+});
+
+        
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+    </script>
+
+
+</body>
+</html>
